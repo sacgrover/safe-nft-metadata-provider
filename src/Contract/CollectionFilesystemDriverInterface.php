@@ -33,7 +33,7 @@ interface CollectionFilesystemDriverInterface
     /**
      * @var string
      */
-    final public const HIDDEN_METADATA_PATH = '/hidden/hidden';
+    final public const HIDDEN_METADATA_PATH = '/hidden/hidden.json';
 
     /**
      * @var string

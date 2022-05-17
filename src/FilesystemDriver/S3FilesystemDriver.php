@@ -76,7 +76,7 @@ final class S3FilesystemDriver implements CollectionFilesystemDriverInterface
     public function getMetadata(int $tokenId): array
     {
         $metadata = Json::decode(
-            $this->getObject(self::METADATA_PATH.'/'.$tokenId)->contents,
+            $this->getObject(self::METADATA_PATH.'/'.$tokenId.'.json')->contents,
             Json::FORCE_ARRAY,
         );
 
@@ -200,7 +200,7 @@ final class S3FilesystemDriver implements CollectionFilesystemDriverInterface
      */
     public function storeExportedMetadata(int $tokenId, array $metadata): void
     {
-        $this->putObject(self::EXPORTED_METADATA_PATH.'/'.$tokenId, Json::encode($metadata, Json::PRETTY));
+        $this->putObject(self::EXPORTED_METADATA_PATH.'/'.$tokenId.'.json', Json::encode($metadata, Json::PRETTY));
     }
 
     public function storeExportedAsset(int $sourceTokenId, int $targetTokenId): void
