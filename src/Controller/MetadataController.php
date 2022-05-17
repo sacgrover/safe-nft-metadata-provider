@@ -25,9 +25,6 @@ use Symfony\Contracts\Cache\ItemInterface;
 #[Route(
     '/metadata/{tokenId}{_format}',
     name: RouteName::GET_METADATA,
-    requirements: [
-        '_format' => '',
-    ],
     defaults: [
         '_format' => '',
     ],
