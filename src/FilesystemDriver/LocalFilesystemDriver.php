@@ -48,7 +48,7 @@ final class LocalFilesystemDriver implements CollectionFilesystemDriverInterface
      */
     public function getMetadata(int $tokenId): array
     {
-        $metadataPath = $this->localCollectionPath.self::METADATA_PATH.'/'.$tokenId.'.json';
+        $metadataPath = $this->localCollectionPath.self::METADATA_PATH.'/'.$tokenId;
         $metadata = Json::decode(FileSystem::read($metadataPath), Json::FORCE_ARRAY);
 
         if (! is_array($metadata)) {
@@ -159,7 +159,7 @@ final class LocalFilesystemDriver implements CollectionFilesystemDriverInterface
     public function storeExportedMetadata(int $tokenId, array $metadata): void
     {
         FileSystem::write(
-            $this->localCollectionPath.self::EXPORTED_METADATA_PATH.'/'.$tokenId.'.json',
+            $this->localCollectionPath.self::EXPORTED_METADATA_PATH.'/'.$tokenId,
             Json::encode($metadata, Json::PRETTY),
             null,
         );
