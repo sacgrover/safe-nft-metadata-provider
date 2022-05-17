@@ -23,14 +23,8 @@ use Symfony\Contracts\Cache\ItemInterface;
  * @author Marco Lipparini <developer@liarco.net>
  */
 #[Route(
-    '/metadata/{tokenId}.{_format}',
+    '/metadata/{tokenId}',
     name: RouteName::GET_METADATA,
-    requirements: [
-        '_format' => 'json',
-    ],
-    defaults: [
-        '_format' => 'json',
-    ],
 )]
 final class MetadataController extends AbstractNftController
 {
